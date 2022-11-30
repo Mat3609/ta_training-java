@@ -14,6 +14,10 @@ public class  Patient extends BasePatient {
         this.numberMedicalCard = numberMedicalCard;
     }
 
+    int k = 22;
+    boolean bol = k < 50 ? true : false;
+
+
     @Override
     public String getName() {
         return name;
