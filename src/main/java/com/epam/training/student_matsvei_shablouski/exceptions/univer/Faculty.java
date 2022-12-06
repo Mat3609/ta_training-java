@@ -5,7 +5,9 @@ import com.epam.training.student_matsvei_shablouski.exceptions.constants.Subject
 import com.epam.training.student_matsvei_shablouski.exceptions.exceptions.InvalidArgumentException;
 import com.epam.training.student_matsvei_shablouski.exceptions.exceptions.LackOfFacultyGroupsException;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 public class Faculty {
     private FacultyName facultyname;

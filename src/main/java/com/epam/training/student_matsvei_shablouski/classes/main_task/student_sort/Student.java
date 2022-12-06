@@ -1,4 +1,6 @@
-package com.epam.training.student_matsvei_shablouski.classes.student_sort;
+package com.epam.training.student_matsvei_shablouski.classes.main_task.student_sort;
+
+import java.util.Objects;
 
 public class Student {
     private int id;
@@ -7,7 +9,7 @@ public class Student {
     private int birthday;
     private String address;
     private int numberPhone;
-    private String faculty;
+    private Faculty faculty;
     private int curs;
     private String group;
 
@@ -17,7 +19,7 @@ public class Student {
         this.name = name;
     }
 
-    public Student(int id, String name, String address, int curs, String faculty, int birthday) {
+    public Student(int id, String name, String address, int curs, Faculty faculty, int birthday) {
         this.id = id;
         this.name = name;
         this.address = address;
@@ -26,14 +28,7 @@ public class Student {
         this.birthday = birthday;
     }
 
-    public Student(int id, String name, int curs) {
-        this.id = id;
-        this.name = name;
-        this.curs = curs;
-    }
-
-
-    public Student(int id, String name, String surname, int birthday, String address, int numberPhone, String faculty, int curs, String group) {
+    public Student(int id, String name, String surname, int birthday, String address, int numberPhone, Faculty faculty, int curs, String group) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -50,77 +45,63 @@ public class Student {
         return id;
     }
 
-    public void setId(int id) {this.id = id;}
-
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getSurname() {
         return surname;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
     public int getBirthday() {
         return birthday;
-    }
-
-    public void setBirthday(int birthday) {
-        this.birthday = birthday;
     }
 
     public String getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
     public int getNumberPhone() {
         return numberPhone;
     }
 
-    public void setNumberPhone(int numberPhone) {
-        this.numberPhone = numberPhone;
-    }
-
-    public String getFaculty() {
+    public Faculty getFaculty() {
         return faculty;
-    }
-
-    public void setFaculty(String faculty) {
-        this.faculty = faculty;
     }
 
     public int getCurs() {
         return curs;
     }
 
-    public void setCurs(int curs) {
-        this.curs = curs;
-    }
-
     public String getGroup() {
         return group;
-    }
-
-    public void setGroup(String group) {
-        this.group = group;
     }
 
     @Override
     public String toString() {
         return "Student{" +
-                "name='" + name + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
                 ", birthday=" + birthday +
+                ", address='" + address + '\'' +
+                ", numberPhone=" + numberPhone +
+                ", faculty=" + faculty +
+                ", curs=" + curs +
+                ", group='" + group + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return id == student.id && birthday == student.birthday && numberPhone == student.numberPhone && curs == student.curs && Objects.equals(name, student.name) && Objects.equals(surname, student.surname) && Objects.equals(address, student.address) && faculty == student.faculty && Objects.equals(group, student.group);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, surname, birthday, address, numberPhone, faculty, curs, group);
     }
 }
